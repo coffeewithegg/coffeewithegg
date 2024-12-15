@@ -8,7 +8,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint --max-warnings 0",
-    "check-types": "tsc --noEmit"
+    "check-types": "tsc --noEmit",
+    "test": "vitest --run",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@cwe/ui": "workspace:*",
@@ -19,9 +21,14 @@
   "devDependencies": {
     "@cwe/eslint-config": "workspace:*",
     "@cwe/typescript-config": "workspace:*",
+    "@playwright/test": "^1.49.1",
     "@types/node": "^20",
     "@types/react": "18.3.1",
     "@types/react-dom": "18.3.0",
-    "typescript": "5.5.4"
+    "@vitejs/plugin-react": "^4.3.4",
+    "happy-dom": "^15.11.7",
+    "typescript": "5.5.4",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^2.1.8"
   }
 }

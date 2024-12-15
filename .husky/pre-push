@@ -1,1 +1,1 @@
-pnpm turbo lint && pnpm turbo test && pnpm turbo build
+turbo build test test:e2e
