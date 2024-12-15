@@ -1,5 +1,5 @@
 {
-  "name": "@cwe/ui",
+  "name": "@cwe/hooks",
   "version": "0.0.1",
   "type": "module",
   "private": true,
@@ -10,24 +10,22 @@
     "dist"
   ],
   "exports": {
-    "./styles.css": "./dist/index.css",
-    "./full-page": {
-      "types": "./src/full-page.tsx",
-      "import": "./dist/full-page.js",
-      "require": "./dist/full-page.js"
-    },
-    "./scroll-button": {
-      "types": "./src/scroll-button.tsx",
-      "import": "./dist/scroll-button.js",
-      "require": "./dist/scroll-button.js"
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
     }
   },
   "scripts": {
-    "build": "tsup && tailwindcss -i ./src/styles.css -o ./dist/index.css",
+    "build": "tsup",
     "lint": "eslint . --max-warnings 0",
-    "dev": "concurrently \"tailwindcss -i ./src/styles.css -o ./dist/index.css --watch\" \"tsup --watch\"",
+    "dev": "tsup --watch",
     "test": "vitest --run",
-    "generate:component": "turbo gen react-component",
     "check-types": "tsc --noEmit",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
@@ -36,16 +34,14 @@
     "@cwe/tailwind-config": "workspace:*",
     "@cwe/typescript-config": "workspace:*",
     "@cwe/utils": "workspace:*",
-    "@cwe/hooks": "workspace:*",
+    "@testing-library/react": "^16.1.0",
     "@turbo/gen": "^1.12.4",
+    "@types/lodash.debounce": "^4.0.9",
     "@types/node": "^20.11.24",
     "@types/react": "18.3.0",
     "@types/react-dom": "18.3.1",
     "@vitejs/plugin-react": "^4.3.4",
-    "autoprefixer": "^10.4.20",
     "happy-dom": "^15.11.7",
-    "postcss": "^8.4.49",
-    "tailwindcss": "^3.4.16",
     "tsup": "^8.3.5",
     "typescript": "5.5.4",
     "vite-tsconfig-paths": "^5.1.4"
@@ -53,5 +49,8 @@
   "peerDependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
+  },
+  "dependencies": {
+    "lodash.debounce": "^4.0.8"
   }
 }

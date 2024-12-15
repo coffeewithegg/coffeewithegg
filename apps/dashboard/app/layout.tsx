@@ -1,16 +1,9 @@
-import localFont from "next/font/local";
-
-import type { Metadata } from "next";
+import "@cwe/ui/styles.css";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-});
+import { Header } from "./_components/header";
+
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "CWE | Dashboard",
@@ -24,8 +17,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <header></header>
+      <body className="bg-bg01">
+        <Header />
         {children}
       </body>
     </html>

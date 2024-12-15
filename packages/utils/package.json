@@ -1,0 +1,39 @@
+{
+  "name": "@cwe/utils",
+  "version": "0.0.1",
+  "type": "module",
+  "private": true,
+  "exports": {
+    "./misc": {
+      "types": "./src/misc/index.ts",
+      "import": "./dist/misc.js",
+      "require": "./dist/misc.js"
+    }
+  },
+  "scripts": {
+    "lint": "eslint . --max-warnings 0",
+    "test": "vitest --run",
+    "check-types": "tsc --noEmit",
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+  },
+  "devDependencies": {
+    "@cwe/eslint-config": "workspace:*",
+    "@cwe/typescript-config": "workspace:*",
+    "@turbo/gen": "^1.12.4",
+    "@types/node": "^20.11.24",
+    "@types/react": "18.3.0",
+    "@types/react-dom": "18.3.1",
+    "happy-dom": "^15.11.7",
+    "tsup": "^8.3.5",
+    "typescript": "5.5.4",
+    "vite-tsconfig-paths": "^5.1.4"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^2.5.5"
+  }
+}
