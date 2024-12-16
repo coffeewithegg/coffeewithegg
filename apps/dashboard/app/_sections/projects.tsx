@@ -2,6 +2,14 @@
 import { FullPage } from "@cwe/ui/full-page";
 import React from "react";
 
+import { useDashboardContext } from "../context";
+
 export const Projects: React.FC = () => {
-  return <FullPage id="projects"></FullPage>;
+  const { updateFragment } = useDashboardContext();
+  return (
+    <FullPage
+      id="projects"
+      onVisible={() => updateFragment("projects")}
+    ></FullPage>
+  );
 };

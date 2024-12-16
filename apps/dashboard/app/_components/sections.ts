@@ -1,19 +1,19 @@
 interface Section {
-  title: string;
+  titleKey: string;
   fragment: string;
 }
 
 export const sections: Section[] = [
   {
-    title: "Profile",
+    titleKey: "profile",
     fragment: "profile",
   },
   {
-    title: "Projects",
+    titleKey: "projects",
     fragment: "projects",
   },
   {
-    title: "Contact",
+    titleKey: "contact",
     fragment: "contact",
   },
 ];

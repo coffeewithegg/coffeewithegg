@@ -1,19 +1,19 @@
 "use client";
-import { usePageFragment } from "@cwe/hooks";
 import { ScrollButton } from "@cwe/ui/scroll-button";
-import { cn, scrollToWithCallback } from "@cwe/utils/misc";
+import { cn } from "@cwe/utils/misc";
 import React from "react";
 
 import { sections } from "./sections";
+import { useDashboardContext } from "../context";
 
 export const LeftSidebar: React.FC = () => {
-  const fragment = usePageFragment();
+  const { fragment } = useDashboardContext();
   return (
     <aside className={cn("fixed", "h-screen ml-14")}>
       <ul className="border-background h-full flex flex-col justify-center">
         {sections.map((section) => (
           <ScrollButton
-            key={section.title}
+            key={section.titleKey}
             fragment={section.fragment}
             className={cn(
               "py-3 w-7 hover:w-9",
@@ -30,17 +30,10 @@ export const LeftSidebar: React.FC = () => {
                 return;
               }
 
-              scrollToWithCallback(
-                container as HTMLElement,
-                {
-                  top:
-                    document.getElementById(section.fragment)?.offsetTop || 0,
-                  behavior: "smooth",
-                },
-                () => {
-                  window.location.hash = section.fragment;
-                },
-              );
+              container.scrollTo({
+                top: document.getElementById(section.fragment)?.offsetTop || 0,
+                behavior: "smooth",
+              });
             }}
           >
             <div className="border-t-4 w-full" />

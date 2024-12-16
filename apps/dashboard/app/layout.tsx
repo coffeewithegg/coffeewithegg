@@ -1,7 +1,11 @@
 import "@cwe/ui/styles.css";
 import "./globals.css";
 
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages } from "next-intl/server";
+
 import { Header } from "./_components/header";
+import { DashboardProvider } from "./context";
 
 import type { Metadata } from "next";
 
@@ -10,16 +14,22 @@ export const metadata: Metadata = {
   description: "List of all projects",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+  const messages = await getMessages();
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body className="bg-bg01">
-        <Header />
-        {children}
+        <NextIntlClientProvider messages={messages}>
+          <DashboardProvider>
+            <Header />
+            {children}
+          </DashboardProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

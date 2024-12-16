@@ -1,15 +1,17 @@
 "use client";
-import { usePageFragment } from "@cwe/hooks";
 import { ScrollButton } from "@cwe/ui/scroll-button";
-import { cn, scrollToWithCallback } from "@cwe/utils/misc";
+import { cn } from "@cwe/utils/misc";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import React from "react";
 
 import LogoSvg from "./logo.svg";
 import { sections } from "./sections";
+import { useDashboardContext } from "../context";
 
 export const Header: React.FC = () => {
-  const fragment = usePageFragment();
+  const t = useTranslations("dashboard.header");
+  const { fragment } = useDashboardContext();
   return (
     <header className={cn("w-full flex justify-between", "fixed", "p-14 pb-0")}>
       <Link
@@ -27,7 +29,7 @@ export const Header: React.FC = () => {
       <div className={cn("flex", "text-grey02 font-light text-2xl", "gap-x-4")}>
         {sections.map((section) => (
           <ScrollButton
-            key={section.title}
+            key={section.titleKey}
             fragment={section.fragment}
             className={cn(
               "hover:text-background hover:underline",
@@ -41,20 +43,13 @@ export const Header: React.FC = () => {
                 return;
               }
 
-              scrollToWithCallback(
-                container as HTMLElement,
-                {
-                  top:
-                    document.getElementById(section.fragment)?.offsetTop || 0,
-                  behavior: "smooth",
-                },
-                () => {
-                  window.location.hash = section.fragment;
-                },
-              );
+              container.scrollTo({
+                top: document.getElementById(section.fragment)?.offsetTop || 0,
+                behavior: "smooth",
+              });
             }}
           >
-            {section.title}
+            {t(section.titleKey)}
           </ScrollButton>
         ))}
       </div>

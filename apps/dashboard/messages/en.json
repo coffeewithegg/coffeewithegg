@@ -1,0 +1,15 @@
+{
+  "dashboard": {
+    "profile": {
+      "hello": "Hello,",
+      "iam": "I am Daniel",
+      "description": "I hope that you have a great day! There are some <hint>easter eggs</hint> hidden in this website! If you have time, try to enjoy the hunt!",
+      "getResume": "You are a recruiter and have no time to game? Click <download>here</download> to download my resume!"
+    },
+    "header": {
+      "profile": "Profile",
+      "projects": "Projects",
+      "contact": "Contact"
+    }
+  }
+}
