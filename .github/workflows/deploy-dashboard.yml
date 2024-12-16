@@ -43,3 +43,11 @@ jobs:
           role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
           role-session-name: gh-actions-${{ github.run_id }}
           aws-region: ${{ env.AWS_REGION }}
+
+      - name: Debug AWS Credentials
+        run: aws sts get-caller-identity
+
+      - name: Deploy to Production
+        run: pnpm turbo deploy -- --stage ${{ vars.DEPLOY_ENV}}
+        env:
+          DEPLOY_ENV: ${{ vars.DEPLOY_ENV}}
