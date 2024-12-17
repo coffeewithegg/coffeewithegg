@@ -1,0 +1,39 @@
+name: Deploy Dashboard via SST
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  run-unit-tests:
+    runs-on:
+      - runs-on=${{ github.run_id }}
+      - runner=2cpu-linux-x64
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ vars.TURBO_TEAM }}
+      TURBO_SCM_BASE: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || github.event.before }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.0.0
+          run_install: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm build:ci
+
+      - name: Run tests
+        run: pnpm test:ci

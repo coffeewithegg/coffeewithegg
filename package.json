@@ -5,6 +5,7 @@
     "build": "turbo build",
     "build:ci": "turbo build --ui stream --affected",
     "deploy:ci": "turbo deploy --affected --ui stream --",
+    "test:ci": "turbo test --affected --ui stream",
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
