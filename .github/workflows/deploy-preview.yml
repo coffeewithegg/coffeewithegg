@@ -1,36 +1,29 @@
-name: Deploy Dashboard via SST
+name: Setup Preview Environment
 
 on:
-  push:
-    branches: ["main"]
   pull_request:
     types: [opened, synchronize, reopened]
-
-env:
-  AWS_REGION: ap-southeast-2
-  AWS_PROFILE: runner
-  TURBO_SCM_BASE: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || github.event.before }}
 
 permissions:
   id-token: write
   contents: read
 
 jobs:
-  deploy:
+  deploy-preview:
+    environment:
+      name: preview
+      url: https://pr-${{ github.event.number }}.coffeewithegg.com
     runs-on:
       - runs-on=${{ github.run_id }}
       - runner=2cpu-linux-x64
-    environment: production
-
+    env:
+      AWS_REGION: ap-southeast-2
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ vars.TURBO_TEAM }}
+      TURBO_SCM_BASE: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || github.event.before }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          aws-region: ${{ env.AWS_REGION }}
-          unset-current-credentials: true
 
       - name: Setup Pnpm
         uses: pnpm/action-setup@v4
@@ -50,7 +43,10 @@ jobs:
       - name: Build
         run: pnpm build:ci
 
-      - name: Deploy to Production
-        run: pnpm deploy:ci --stage ${{ vars.DEPLOY_ENV }}
+      - name: Prepare preview prefix
+        run: echo "SST_STAGE=pr-${{ github.event.number }}" >> $GITHUB_ENV
+
+      - name: Deploy Preview
+        run: pnpm deploy:ci
         env:
-          DEPLOY_ENV: ${{ vars.DEPLOY_ENV }}
+          SST_PRINT_LOGS: true
