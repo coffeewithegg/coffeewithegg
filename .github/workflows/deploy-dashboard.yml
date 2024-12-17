@@ -8,6 +8,7 @@ on:
 
 env:
   AWS_REGION: ap-southeast-2
+  AWS_PROFILE: runner
   TURBO_SCM_BASE: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || github.event.before }}
 
 permissions:
@@ -18,7 +19,7 @@ jobs:
   deploy:
     runs-on:
       - runs-on=${{ github.run_id }}
-      - runner=1cpu-linux-x64
+      - runner=2cpu-linux-x64
     environment: production
 
     steps:
@@ -28,9 +29,8 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          audience: sts.amazonaws.com
           aws-region: ${{ env.AWS_REGION }}
-          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          unset-current-credentials: true
 
       - name: Setup Pnpm
         uses: pnpm/action-setup@v4
