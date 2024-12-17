@@ -19,6 +19,7 @@
     "@cwe/ui": "workspace:*",
     "next": "^15.1.0",
     "next-intl": "^3.26.1",
+    "posthog-js": "^1.202.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "sst": "3.4.5"

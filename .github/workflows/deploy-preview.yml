@@ -49,4 +49,6 @@ jobs:
       - name: Deploy Preview
         run: pnpm deploy:ci
         env:
+          NEXT_PUBLIC_POSTHOG_KEY: ${{ secrets.NEXT_PUBLIC_POSTHOG_KEY }}
+          NEXT_PUBLIC_POSTHOG_HOST: ${{ vars.NEXT_PUBLIC_POSTHOG_HOST }}
           SST_PRINT_LOGS: true

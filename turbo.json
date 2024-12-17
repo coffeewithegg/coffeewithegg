@@ -29,7 +29,11 @@
     },
     "deploy": {
       "dependsOn": ["^deploy"],
-      "env": ["SST_STAGE"],
+      "env": [
+        "SST_STAGE",
+        "NEXT_PUBLIC_POSTHOG_KEY",
+        "NEXT_PUBLIC_POSTHOG_HOST"
+      ],
       "cache": false
     },
     "teardown": {
