@@ -5,6 +5,7 @@
     "build": "turbo build",
     "build:ci": "turbo build --ui stream --affected",
     "deploy:ci": "turbo deploy --affected --ui stream",
+    "teardown:ci": "turbo teardown --affected --ui stream",
     "test:ci": "turbo test --affected --ui stream",
     "e2e:ci": "turbo test:e2e --affected --ui stream",
     "dev": "turbo dev",

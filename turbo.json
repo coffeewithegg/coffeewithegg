@@ -31,6 +31,11 @@
       "dependsOn": ["^deploy"],
       "env": ["SST_STAGE"],
       "cache": false
+    },
+    "teardown": {
+      "dependsOn": ["^teardown"],
+      "env": ["SST_STAGE"],
+      "cache": false
     }
   }
 }

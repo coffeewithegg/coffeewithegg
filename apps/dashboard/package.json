@@ -12,7 +12,8 @@
     "start": "next start",
     "test": "vitest --run",
     "test:e2e": "playwright test",
-    "deploy": "sst deploy"
+    "deploy": "sst deploy",
+    "teardown": "sst remove"
   },
   "dependencies": {
     "@cwe/ui": "workspace:*",
