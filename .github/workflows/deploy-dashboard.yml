@@ -8,6 +8,7 @@ on:
 
 env:
   AWS_REGION: ap-southeast-2
+  TURBO_SCM_BASE: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || github.event.before }}
 
 permissions:
   id-token: write
@@ -15,12 +16,21 @@ permissions:
 
 jobs:
   deploy:
-    runs-on: self-hosted
+    runs-on:
+      - runs-on=${{ github.run_id }}
+      - runner=1cpu-linux-x64
     environment: production
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          audience: sts.amazonaws.com
+          aws-region: ${{ env.AWS_REGION }}
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
 
       - name: Setup Pnpm
         uses: pnpm/action-setup@v4
@@ -37,7 +47,10 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Build
+        run: pnpm build:ci
+
       - name: Deploy to Production
-        run: pnpm turbo deploy -- --stage ${{ vars.DEPLOY_ENV }}
+        run: pnpm deploy:ci --stage ${{ vars.DEPLOY_ENV }}
         env:
           DEPLOY_ENV: ${{ vars.DEPLOY_ENV }}
