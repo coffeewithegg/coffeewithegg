@@ -5,7 +5,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 
 import { Header } from "./_components/header";
-import { DashboardProvider } from "./context";
+import { Providers } from "./providers";
 
 import type { Metadata } from "next";
 
@@ -25,10 +25,10 @@ export default async function RootLayout({
     <html lang={locale}>
       <body className="bg-bg01">
         <NextIntlClientProvider messages={messages}>
-          <DashboardProvider>
+          <Providers>
             <Header />
             {children}
-          </DashboardProvider>
+          </Providers>
         </NextIntlClientProvider>
       </body>
     </html>
