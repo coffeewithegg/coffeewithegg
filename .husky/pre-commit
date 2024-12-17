@@ -1,1 +1,1 @@
-turbo lint -- --fix
+turbo lint --affected -- --fix

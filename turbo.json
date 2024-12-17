@@ -26,6 +26,10 @@
     },
     "test:e2e": {
       "dependsOn": ["^test:e2e"]
+    },
+    "deploy": {
+      "dependsOn": ["^deploy"],
+      "env": ["DEPLOY_ENV"]
     }
   }
 }

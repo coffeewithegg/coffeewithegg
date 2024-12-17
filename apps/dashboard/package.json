@@ -4,21 +4,23 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint --max-warnings 0",
     "check-types": "tsc --noEmit",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf .next",
+    "dev": "next dev --turbopack",
+    "lint": "next lint --max-warnings 0",
+    "start": "next start",
     "test": "vitest --run",
     "test:e2e": "playwright test",
-    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf .next"
+    "deploy": "sst deploy"
   },
   "dependencies": {
     "@cwe/ui": "workspace:*",
     "next": "^15.1.0",
     "next-intl": "^3.26.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "sst": "3.4.5"
   },
   "devDependencies": {
     "@cwe/eslint-config": "workspace:*",
