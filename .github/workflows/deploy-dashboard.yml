@@ -15,7 +15,7 @@ permissions:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     environment: production
 
     steps:
@@ -37,17 +37,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Setup AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
-          role-session-name: gh-actions-${{ github.run_id }}
-          aws-region: ${{ env.AWS_REGION }}
-
-      - name: Debug AWS Credentials
-        run: aws sts get-caller-identity
-
       - name: Deploy to Production
-        run: pnpm turbo deploy -- --stage ${{ vars.DEPLOY_ENV}}
+        run: pnpm turbo deploy -- --stage ${{ vars.DEPLOY_ENV }}
         env:
-          DEPLOY_ENV: ${{ vars.DEPLOY_ENV}}
+          DEPLOY_ENV: ${{ vars.DEPLOY_ENV }}

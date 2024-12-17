@@ -83,3 +83,13 @@ permissions:
   id-token: write # This is used to allow Github OIDC provider to create a JWT token
   contents: read # This is to checkouts the repository
 ```
+
+4. So this is where I currently stucked. I am able to assume role but when `sst deploy` is run, it is throwing an error.
+
+```bash
+aws: failed to refresh cached credentials, no EC2 IMDS role found, operation error ec2imds: GetMetadata, failed to get API token, operation error ec2imds: getToken, http response error StatusCode: 400, request to EC2 IMDS failed
+```
+
+It means that the runner failed to get the credentials from the EC2 IMDS role.
+
+I am still trying to figure out how to solve this issue. But for now, I am switching to use `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` to deploy the application.
