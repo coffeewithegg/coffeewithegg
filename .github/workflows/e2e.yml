@@ -1,6 +1,9 @@
-name: Run unit tests
+name: Run Integration tests
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     types: [opened, synchronize]
 
@@ -36,4 +39,4 @@ jobs:
         run: pnpm build:ci
 
       - name: Run tests
-        run: pnpm test:ci
+        run: pnpm e2e:ci
