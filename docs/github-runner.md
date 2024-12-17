@@ -19,7 +19,7 @@ In summary, you need to:
 3.  Click on "New self-hosted runner"
 4.  Follow the instructions and copy the script and token to connect the runner to your repository
 
-Another options that I found is [RunsOn](https://github.com/runs-on/runs-on).
+Another options that I found is [RunsOn](https://runs-on.com).
 It is a self-hosted runner that is very simple to switch from the free tier to a self-hosted runner.
 You just need to replace:
 
@@ -30,8 +30,10 @@ runs-on: ubuntu-latest
 with:
 
 ```yaml
-runs-on: [runs-on, runner=whatever-you-need, run-id=${{ github.run_id }}]
+runs-on: [runs-on=${{ github.run_id }}, runner=whatever-you-need }}]
 ```
+
+I ended up using RunsOn because it is simpler and use AWS so I can deploy my application to AWS as well. It is also free for non-commercial use and the runner will also automatically shut down when not in use.
 
 ### 2. Connect workflows with AWS
 
@@ -92,4 +94,13 @@ aws: failed to refresh cached credentials, no EC2 IMDS role found, operation err
 
 It means that the runner failed to get the credentials from the EC2 IMDS role.
 
-I am still trying to figure out how to solve this issue. But for now, I am switching to use `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` to deploy the application.
+I am still trying to figure out how to solve this issue. But for now, I am switching to use `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` to deploy the application. 3. Debugging the CI/CD pipeline
+
+When setting up CI/CD pipelines, I found it difficult to debug the pipeline when it fails. So these 2 lines helped me save the day:
+
+```yaml
+- name: Setup tmate session
+  uses: mxschmitt/action-tmate@v3
+```
+
+This will set up a tmate session that you can connect to and debug the pipeline. Think of it as a breakpoint in your code. After that, rerun the pipeline and check the logs for the tmate session link.
