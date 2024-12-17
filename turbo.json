@@ -5,7 +5,7 @@
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": [".next/**", "!.next/cache/**"]
+      "outputs": [".next/**", "!.next/cache/**", "dist/**"]
     },
     "lint": {
       "dependsOn": ["^lint"]
@@ -29,7 +29,8 @@
     },
     "deploy": {
       "dependsOn": ["^deploy"],
-      "env": ["DEPLOY_ENV"]
+      "env": ["SST_STAGE"],
+      "cache": false
     }
   }
 }

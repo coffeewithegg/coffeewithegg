@@ -18,10 +18,13 @@ export default $config({
     new sst.aws.Nextjs("Dashboard", {
       domain: {
         name:
-          process.env.DEPLOY_ENV === "production"
+          process.env.SST_STAGE === "production"
             ? "coffeewithegg.com"
-            : `${process.env.DEPLOY_ENV}.coffeewithegg.com`,
-        redirects: ["www.coffeewithegg.com"],
+            : `${process.env.SST_STAGE}.coffeewithegg.com`,
+        redirects:
+          process.env.SST_STAGE === "production"
+            ? ["www.coffeewithegg.com"]
+            : [],
       },
     });
   },
