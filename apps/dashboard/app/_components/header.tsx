@@ -13,7 +13,14 @@ export const Header: React.FC = () => {
   const t = useTranslations("dashboard.header");
   const { fragment } = useDashboardContext();
   return (
-    <header className={cn("w-full flex justify-between", "fixed", "p-14 pb-0")}>
+    <header
+      className={cn(
+        "w-full flex justify-between",
+        "fixed",
+        "p-14 pb-0",
+        "mobile:p-6",
+      )}
+    >
       <Link
         scroll={false}
         className={cn(
@@ -31,7 +38,14 @@ export const Header: React.FC = () => {
         />
         CWE.
       </Link>
-      <div className={cn("flex", "text-grey02 font-light text-2xl", "gap-x-4")}>
+      <div
+        className={cn(
+          "flex",
+          "text-grey02 font-light text-2xl",
+          "gap-x-4",
+          "mobile:hidden",
+        )}
+      >
         {sections.map((section) => (
           <ScrollButton
             key={section.titleKey}

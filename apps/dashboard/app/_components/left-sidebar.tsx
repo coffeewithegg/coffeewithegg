@@ -9,7 +9,7 @@ import { useDashboardContext } from "../context";
 export const LeftSidebar: React.FC = () => {
   const { fragment } = useDashboardContext();
   return (
-    <aside className={cn("fixed", "h-screen ml-14")}>
+    <aside className={cn("fixed", "h-screen ml-14", "mobile:hidden")}>
       <div className="border-background h-full flex flex-col justify-center">
         {sections.map((section) => (
           <ScrollButton

@@ -14,7 +14,7 @@ export const Projects: React.FC = () => {
       className="flex flex-col justify-center"
       onVisible={() => updateFragment("projects")}
     >
-      <div className="flex flex-col px-32">
+      <div className="flex flex-col px-32 mobile:px-6">
         <p className="text-4xl text-background font-bold">{t("title")}</p>
         <br />
         <p className="text-2xl text-grey01 font-light mb-12">

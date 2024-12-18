@@ -9,6 +9,7 @@ export const RightSidebar: React.FC = () => {
         className={cn(
           "flex flex-col justify-center",
           "border-background h-full",
+          "mobile:hidden",
         )}
       >
         <li
