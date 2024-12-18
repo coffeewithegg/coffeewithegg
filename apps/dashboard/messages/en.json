@@ -4,7 +4,15 @@
       "hello": "Hello,",
       "iam": "I am Daniel",
       "description": "I hope that you have a great day! There are some <hint>easter eggs</hint> hidden in this website! If you have time, try to enjoy the hunt!",
-      "getResume": "You are a recruiter and have no time to game? Click <download>here</download> to download my resume!"
+      "getResume": "You are a recruiter and have no time to game? This is <download>my resume</download> so you can cut right to the chase!"
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "If you have any questions or want to get in touch, please feel free to contact me via email or LinkedIn."
+    },
+    "projects": {
+      "title": "Projects",
+      "description": "Here are some of the projects that I have worked on. Click on the project to learn more about it."
     },
     "header": {
       "profile": "Profile",
