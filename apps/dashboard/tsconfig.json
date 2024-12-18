@@ -6,7 +6,9 @@
         "name": "next"
       }
     ],
-    "paths": {}
+    "paths": {
+      "~/*": ["./*"]
+    }
   },
   "include": [
     "**/*.ts",
@@ -15,5 +17,5 @@
     "next.config.js",
     ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules","sst.config.ts"]
+  "exclude": ["node_modules", "sst.config.ts"]
 }
