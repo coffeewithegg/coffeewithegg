@@ -1,6 +1,6 @@
 [build]
 command = "pnpm turbo build --filter ops"
-publish = "build/client"
+publish = "apps/ops/build/client"
 
 [dev]
 command = "pnpm turbo dev"
