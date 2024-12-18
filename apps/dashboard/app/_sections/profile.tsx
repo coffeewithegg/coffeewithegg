@@ -15,7 +15,7 @@ export const Profile: React.FC = () => {
       className="flex flex-col items-center justify-center"
       onVisible={() => updateFragment("profile")}
     >
-      <div className="px-32">
+      <div className="px-32 mobile:px-6">
         <p className="font-bold text-background text-4xl">{t("hello")}</p>
         <p className="font-bold text-background text-4xl">{t("iam")}</p>
         <br />

@@ -9,12 +9,13 @@ import { useDashboardContext } from "../context";
 export const LeftSidebar: React.FC = () => {
   const { fragment } = useDashboardContext();
   return (
-    <aside className={cn("fixed", "h-screen ml-14")}>
-      <ul className="border-background h-full flex flex-col justify-center">
+    <aside className={cn("fixed", "h-screen ml-14", "mobile:hidden")}>
+      <div className="border-background h-full flex flex-col justify-center">
         {sections.map((section) => (
           <ScrollButton
             key={section.titleKey}
             fragment={section.fragment}
+            aria-label={section.titleKey}
             className={cn(
               "py-3 w-7 hover:w-9",
               `#${section.fragment}` === fragment
@@ -39,7 +40,7 @@ export const LeftSidebar: React.FC = () => {
             <div className="border-t-4 w-full" />
           </ScrollButton>
         ))}
-      </ul>
+      </div>
     </aside>
   );
 };
