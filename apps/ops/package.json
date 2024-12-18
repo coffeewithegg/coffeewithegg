@@ -20,10 +20,11 @@
   },
   "devDependencies": {
     "@cwe/eslint-config": "workspace:*",
-    "@cwe/typescript-config": "workspace:*",
     "@cwe/tailwind-config": "workspace:*",
+    "@cwe/typescript-config": "workspace:*",
     "@react-router/dev": "^7.0.2",
     "@types/express": "^5.0.0",
+    "@types/express-serve-static-core": "^5.0.2",
     "@types/node": "^20",
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.1",

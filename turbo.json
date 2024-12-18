@@ -29,6 +29,13 @@
     },
     "deploy": {
       "dependsOn": ["^deploy"],
+      "outputs": [
+        ".sst/**",
+        ".vercel/**",
+        ".next/**",
+        "dist/**",
+        "!.next/cache/**"
+      ],
       "env": [
         "SST_STAGE",
         "NEXT_PUBLIC_POSTHOG_KEY",

@@ -6,8 +6,14 @@
         "name": "next"
       }
     ],
+    "jsx": "preserve",
     "paths": {
-      "~/*": ["./*"]
+      "~/*": [
+        "./*"
+      ],
+      "react": [
+        "./node_modules/@types/react"
+      ]
     }
   },
   "include": [
@@ -17,5 +23,8 @@
     "next.config.js",
     ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules", "sst.config.ts"]
+  "exclude": [
+    "node_modules",
+    "sst.config.ts"
+  ]
 }
