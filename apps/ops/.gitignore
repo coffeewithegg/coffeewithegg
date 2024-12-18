@@ -5,8 +5,5 @@
 /.react-router/
 /build/
 
-# Vercel
-/.vercel/
-
 # Netlify
 .netlify
