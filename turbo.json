@@ -33,6 +33,7 @@
       "outputs": [
         ".sst/**",
         ".vercel/**",
+        ".netlify/**",
         ".next/**",
         "dist/**",
         "!.next/cache/**"

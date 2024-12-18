@@ -4,7 +4,7 @@ import "react-router";
 
 declare module "react-router" {
   export interface AppLoadContext {
-    VALUE_FROM_VERCEL: string;
+    VALUE_FROM_SERVER: string;
   }
 }
 
@@ -16,10 +16,15 @@ app.use(
     build: () => import("virtual:react-router/server-build"),
     getLoadContext() {
       return {
-        VALUE_FROM_VERCEL: "Hello from Vercel",
+        VALUE_FROM_SERVER: "Hello from the server!",
       };
     },
-  })
+  }),
 );
+
+export const config = {
+  path: "/*",
+  preferStatic: true,
+};
 
 export default app;
