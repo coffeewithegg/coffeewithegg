@@ -1,6 +1,6 @@
 # Ops
 
-This is where I manage the configuration of things. It is hosted on Vercel because this project is built with react-router-v7. If I were to host it manually, I would have to use a server and maintain that. So I use Vercel to host it for free.
+This is where I manage the configuration of things. It is hosted on Netlify because this project is built with react-router-v7. If I were to host it manually, I would have to use a server and maintain that. So I use Netlify to host it for free.
 
 ## Getting Started
 
