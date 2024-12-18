@@ -9,6 +9,7 @@
     "check-types": "react-router typegen && tsc --noEmit"
   },
   "dependencies": {
+    "@clerk/react-router": "^0.1.3",
     "@react-router/express": "^7.0.2",
     "@react-router/node": "^7.0.2",
     "@vercel/node": "^3.2.25",
