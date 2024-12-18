@@ -31,6 +31,7 @@ export const Header: React.FC = () => {
         href="/"
       >
         <Image
+          priority
           src="/logo.webp"
           alt="Logo of coffee with egg"
           width={50}
