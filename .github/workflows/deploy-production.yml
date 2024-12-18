@@ -1,4 +1,4 @@
-name: Deploy Production
+name: Deploy Production Environment For Dashboard
 
 on:
   push:
@@ -43,7 +43,9 @@ jobs:
         run: pnpm build:ci
 
       - name: Deploy Production
-        run: pnpm deploy:ci
+        run: |
+          cd apps/dashboard
+          pnpm turbo deploy
         env:
           NEXT_PUBLIC_POSTHOG_KEY: ${{ secrets.NEXT_PUBLIC_POSTHOG_KEY }}
           NEXT_PUBLIC_POSTHOG_HOST: ${{ vars.NEXT_PUBLIC_POSTHOG_HOST }}
