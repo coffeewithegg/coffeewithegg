@@ -1,6 +1,6 @@
 # Ops
 
-This is where I manage the configuration of things. It is hosted on Vercel because this project is built with react-router-v7. If I were to host it manually, I would have to use a server and maintain that. So I use Vercel to host it for free.
+This is where I manage the configuration of things. It is hosted on Netlify because this project is built with react-router-v7. If I were to host it manually, I would have to use a server and maintain that. So I use Netlify to host it for free.
 
 ## Getting Started
 
@@ -36,4 +36,4 @@ pnpm run build
 
 ## Deployment
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fjacob-ebey%2Freact-router-templates%2Ftree%2Fmain%2Fvercel&project-name=my-react-router-app&repository-name=my-react-router-app)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/coffeewithegg/coffeewithegg&create_from_path=apps/ops)

@@ -1,4 +1,4 @@
-name: Close Preview Environment
+name: Close Preview Environment For Dashboard
 
 on:
   pull_request:
@@ -40,6 +40,8 @@ jobs:
         run: echo "SST_STAGE=pr-${{ github.event.number }}" >> $GITHUB_ENV
 
       - name: Teardown Preview
-        run: pnpm teardown:ci
+        run: |
+          cd apps/dashboard
+          pnpm turbo teardown
         env:
           SST_PRINT_LOGS: true

@@ -1,4 +1,4 @@
-name: Setup Preview Environment
+name: Setup Preview Environment For Dashboard
 
 on:
   pull_request:
@@ -40,14 +40,16 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build
+      - name: Build app and dependencies
         run: pnpm build:ci
 
       - name: Prepare preview prefix
         run: echo "SST_STAGE=pr-${{ github.event.number }}" >> $GITHUB_ENV
 
       - name: Deploy Preview
-        run: pnpm deploy:ci
+        run: |
+          cd apps/dashboard
+          pnpm turbo deploy
         env:
           NEXT_PUBLIC_POSTHOG_KEY: ${{ secrets.NEXT_PUBLIC_POSTHOG_KEY }}
           NEXT_PUBLIC_POSTHOG_HOST: ${{ vars.NEXT_PUBLIC_POSTHOG_HOST }}

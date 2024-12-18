@@ -1,0 +1,14 @@
+[build]
+command = "pnpm turbo build --filter ops"
+publish = "apps/ops/build/client"
+
+[dev]
+command = "pnpm turbo dev"
+framework = "vite"
+
+# Set immutable caching for static files, because they have fingerprinted filenames
+
+[[headers]]
+for = "/assets/*"
+[headers.values]
+"Cache-Control" = "public, max-age=31560000, immutable"
