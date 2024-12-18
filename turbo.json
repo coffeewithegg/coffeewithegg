@@ -6,7 +6,15 @@
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": [".next/**", "!.next/cache/**", "dist/**"]
+      "outputs": [
+        ".sst/**",
+        ".vercel/**",
+        ".netlify/**",
+        ".next/**",
+        "dist/**",
+        "!.next/cache/**",
+        "build/**"
+      ]
     },
     "lint": {
       "dependsOn": ["^lint"]
@@ -36,7 +44,8 @@
         ".netlify/**",
         ".next/**",
         "dist/**",
-        "!.next/cache/**"
+        "!.next/cache/**",
+        "build/**"
       ],
       "env": [
         "SST_STAGE",

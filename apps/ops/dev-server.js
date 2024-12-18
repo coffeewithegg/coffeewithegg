@@ -1,3 +1,4 @@
+import { createRequestListener } from "@mjackson/node-fetch-server";
 import express from "express";
 
 const PORT = Number.parseInt(process.env.PORT || "3001");
@@ -14,8 +15,12 @@ const viteDevServer = await import("vite").then((vite) =>
 app.use(viteDevServer.middlewares);
 app.use(async (req, res, next) => {
   try {
-    const source = await viteDevServer.ssrLoadModule("./server/app.ts");
-    return await source.default(req, res, next);
+    return await createRequestListener(async (request) => {
+      const source = await viteDevServer.ssrLoadModule("./server/app.ts");
+      return await source.default(request, {
+        // TODO: Mock any required netlify functions context
+      });
+    })(req, res);
   } catch (error) {
     if (typeof error === "object" && error instanceof Error) {
       viteDevServer.ssrFixStacktrace(error);
