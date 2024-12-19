@@ -1,0 +1,11 @@
+{
+  "name": "adam",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "go run server.go",
+    "build": "echo 'Add build script here'",
+    "test": "echo 'Add test script here'",
+    "lint": "echo 'Add lint script here'"
+  }
+}

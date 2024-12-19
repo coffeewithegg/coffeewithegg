@@ -4,11 +4,11 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import React from "react";
 
-import { useDashboardContext } from "../context";
+import { useDashboard } from "../context";
 
 export const Profile: React.FC = () => {
   const t = useTranslations("dashboard.profile");
-  const { updateFragment } = useDashboardContext();
+  const { updateFragment } = useDashboard();
   return (
     <FullPage
       id="profile"
