@@ -12,4 +12,4 @@
  * ```
  */
 export const nearEquals = (a: number, b: number, epsilon = 0.0001): boolean =>
-  Math.abs(a - b) < epsilon;
+  Math.abs(a - b) <= epsilon;

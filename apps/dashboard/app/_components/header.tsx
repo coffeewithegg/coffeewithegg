@@ -7,11 +7,11 @@ import { useTranslations } from "next-intl";
 import React from "react";
 
 import { sections } from "./sections";
-import { useDashboardContext } from "../context";
+import { useDashboard } from "../context";
 
 export const Header: React.FC = () => {
   const t = useTranslations("dashboard.header");
-  const { fragment } = useDashboardContext();
+  const { fragment } = useDashboard();
   return (
     <header
       className={cn(
