@@ -4,10 +4,10 @@ import { cn } from "@cwe/utils/misc";
 import React from "react";
 
 import { sections } from "./sections";
-import { useDashboardContext } from "../context";
+import { useDashboard } from "../context";
 
 export const LeftSidebar: React.FC = () => {
-  const { fragment } = useDashboardContext();
+  const { fragment } = useDashboard();
   return (
     <aside className={cn("fixed", "h-screen ml-14", "mobile:hidden")}>
       <div className="border-background h-full flex flex-col justify-center">

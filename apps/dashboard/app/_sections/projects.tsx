@@ -3,11 +3,11 @@ import { FullPage } from "@cwe/ui/full-page";
 import { useTranslations } from "next-intl";
 import React from "react";
 
-import { useDashboardContext } from "../context";
+import { useDashboard } from "../context";
 
 export const Projects: React.FC = () => {
   const t = useTranslations("dashboard.projects");
-  const { updateFragment } = useDashboardContext();
+  const { updateFragment } = useDashboard();
   return (
     <FullPage
       id="projects"
