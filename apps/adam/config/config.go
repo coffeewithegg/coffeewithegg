@@ -20,8 +20,8 @@ type Config struct {
 
 	BaseURL string
 
-	Casbin  *Casbin
-	OpenAPI *OpenAPI
+	Casbin *Casbin
+	// OpenAPI *OpenAPI
 }
 
 type Casbin struct {
@@ -46,9 +46,9 @@ func New() *Config {
 			Model:  "./casbin/model.conf",
 			Policy: "./casbin/policy.csv",
 		},
-		OpenAPI: &OpenAPI{
-			Schema: "./openapi/openapi.yaml",
-		},
+		// OpenAPI: &OpenAPI{
+		// 	Schema: "./openapi/openapi.yaml",
+		// },
 	}
 }
 
@@ -74,7 +74,7 @@ func (c *Config) addFlags(fs *pflag.FlagSet) {
 	fs.StringVar(&c.Casbin.Model, CasbinModel, c.Casbin.Model, "Casbin model file")
 	fs.StringVar(&c.Casbin.Policy, CasbinPolicy, c.Casbin.Policy, "Casbin policy file")
 
-	fs.StringVar(&c.OpenAPI.Schema, OpenAPISchema, c.OpenAPI.Schema, "OpenAPI schema file")
+	// fs.StringVar(&c.OpenAPI.Schema, OpenAPISchema, c.OpenAPI.Schema, "OpenAPI schema file")
 }
 
 func (c *Config) BindFlags() {
