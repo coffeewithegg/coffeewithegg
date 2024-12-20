@@ -59,12 +59,10 @@ export function DashboardProvider({ children }: PropsWithChildren) {
  * @throws Error if used outside of PageFragmentProvider
  * @returns PageFragmentContextValue containing updateFragment callback
  */
-export function useDashboardContext(): DashboardContextValue {
+export function useDashboard(): DashboardContextValue {
   const context = useContext(DashboardContext);
   if (!context) {
-    throw new Error(
-      "useDashboardContext must be used within a DashboardProvider",
-    );
+    throw new Error("useDashboard must be used within a DashboardProvider");
   }
   return context;
 }

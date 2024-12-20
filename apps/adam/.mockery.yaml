@@ -1,0 +1,12 @@
+with-expecter: true
+filename: "mock_{{.InterfaceName}}.go"
+dir: "mocks/{{.InterfaceDir}}"
+mockname: "Mock{{.InterfaceName}}"
+outpkg: "{{.PackageName}}"
+packages:
+  github.com/coffeewithegg/adam/handlers:
+    interfaces:
+      ProjectService:
+  github.com/coffeewithegg/adam/services:
+    interfaces:
+      ProjectMapper:
