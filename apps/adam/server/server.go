@@ -1,17 +1,17 @@
 package server
 
 import (
-	"adam/config"
-	"adam/handlers"
-	"adam/lib/http/api/server"
+	"github.com/coffeewithegg/adam/config"
+	"github.com/coffeewithegg/adam/handlers"
+	"github.com/coffeewithegg/adam/lib/http/api/server"
 	"net/http"
 
 	"github.com/casbin/casbin/v2"
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/viper"
 
-	casbinMw "adam/middlewares/casbin"
-	openapiMw "adam/middlewares/openapi"
+	casbinMw "github.com/coffeewithegg/adam/middlewares/casbin"
+	openapiMw "github.com/coffeewithegg/adam/middlewares/openapi"
 )
 
 func New() *server.Server {

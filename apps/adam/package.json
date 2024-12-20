@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "go run server.go",
+    "dev": "air go run server.go",
     "build": "go build -o dist/server cmd/server/main.go",
     "test": "go test ./...",
     "lint": "go mod tidy && go fmt ./... && go vet ./... && echo"

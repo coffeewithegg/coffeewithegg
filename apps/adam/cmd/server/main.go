@@ -1,9 +1,9 @@
 package main
 
 import (
-	"adam/config"
-	"adam/server"
 	"fmt"
+	"github.com/coffeewithegg/adam/config"
+	"github.com/coffeewithegg/adam/server"
 	"strings"
 
 	"github.com/rs/zerolog/log"

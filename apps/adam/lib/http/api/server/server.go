@@ -1,10 +1,10 @@
 package server
 
 import (
-	"adam/lib/http/api/config"
 	"context"
 	"errors"
 	"fmt"
+	"github.com/coffeewithegg/adam/lib/http/api/config"
 	"net/http"
 	"os"
 	"os/signal"

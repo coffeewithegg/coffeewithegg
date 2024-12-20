@@ -3,7 +3,7 @@ package data
 import (
 	"fmt"
 
-	libPG "adam/lib/db/postgres"
+	libPG "github.com/coffeewithegg/adam/lib/db/postgres"
 
 	"github.com/spf13/viper"
 	"gorm.io/driver/postgres"

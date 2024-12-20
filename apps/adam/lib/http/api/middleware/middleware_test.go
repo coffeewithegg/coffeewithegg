@@ -1,9 +1,9 @@
 package middleware
 
 import (
-	"adam/lib/http/api/handler"
-	"adam/lib/http/api/server"
 	"embed"
+	"github.com/coffeewithegg/adam/lib/http/api/handler"
+	"github.com/coffeewithegg/adam/lib/http/api/server"
 	"net/http"
 	"net/http/httptest"
 	"testing"

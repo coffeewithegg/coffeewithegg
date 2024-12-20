@@ -4,6 +4,11 @@ p, any, /livez, GET
 p, any, /docs, GET
 p, any, /openapi/*, GET
 
+p, any, /tasks, GET
+p, user, /tasks, POST
+p, any, /tasks/:id, GET
+p, user, /tasks/:id, (PUT)|(DELETE)
+
 g, *, any
 g, user, any
 g, admin, user

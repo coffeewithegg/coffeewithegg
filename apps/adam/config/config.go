@@ -1,11 +1,11 @@
 package config
 
 import (
-	libConfig "adam/lib/config"
-	libPG "adam/lib/db/postgres"
-	libHttp "adam/lib/http/api/config"
-	libLog "adam/lib/log"
 	"fmt"
+	libConfig "github.com/coffeewithegg/adam/lib/config"
+	libPG "github.com/coffeewithegg/adam/lib/db/postgres"
+	libHttp "github.com/coffeewithegg/adam/lib/http/api/config"
+	libLog "github.com/coffeewithegg/adam/lib/log"
 
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/pflag"

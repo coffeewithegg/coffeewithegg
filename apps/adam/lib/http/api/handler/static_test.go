@@ -6,7 +6,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"adam/lib/http/api/server"
+	"github.com/coffeewithegg/adam/lib/http/api/server"
 	"github.com/stretchr/testify/assert"
 )
 
